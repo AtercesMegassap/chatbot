@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página HTML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="css/mycss.css">
+    <script src="js/myjs.js"></script>
+</head>
+<body class="background">
+    <header class="header">
+        <h1 class="Title">Bem-vindo ao ChatBot</h1>
+    </header>
+
+    <main>
+        <div class="chat-container">
+            <div class="recebido">
+                <img src="resurces/homem.png" class="avatar" alt="Avatar Recebido">
+                <div class="message received">
+                    <p>Olá! Qual é o seu nome?</p>
+                </div>
+            </div>
+            <!-- Adicione mais mensagens aqui -->
+        </div>
+        <div class="messageBox">
+            <input type="text" class="messageInput" id="user-input" placeholder="Digite sua mensagem...">
+            <button class="messageBotton" onclick="sendMessage() ">Enviar</button>
+        </div>
+    </main>
+
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Simulado</title>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+
+    <script>
+        var questions = [
+            "Qual é o seu nome?",
+            "Qual é o seu numero?",
+            "Qual é a sua cidade?"
+        ];
+
+        var currentQuestion = 0;
+
+        function sendMessage() {
+            // Obtenha a mensagem do usuário
+            var userMessage = document.getElementById('user-input').value;
+
+            // Exiba a pergunta atual e a resposta do usuário no chat
+            var chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML += '<p><strong>Chatbot:</strong> ' + questions[currentQuestion] + '</p>';
+            chatBox.innerHTML += '<p><strong>Você:</strong> ' + userMessage + '</p>';
+
+            // Avance para a próxima pergunta (ou encerre a conversa)
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                chatBox.innerHTML += '<p><strong>Chatbot:</strong> ' + questions[currentQuestion] + '</p>';
+            } else {
+                chatBox.innerHTML += '<p><strong>Chatbot:</strong> Fim da conversa.</p>';
+                document.getElementById('user-input').disabled = true;
+            }
+
+            // Limpe o campo de entrada
+            document.getElementById('user-input').value = '';
+        }
+    </script>
+</body>
+</html> -->
