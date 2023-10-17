@@ -20,8 +20,40 @@ body {
   background-size: contain;
 }
 
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #efeff055;
+  align-items: center;
+  padding: 15px 0px;
+  backdrop-filter: blur(5px);
+  border-radius: 16%;
+}
+
+.logo {
+  border-style: none;
+  height: auto;
+  max-width: 100%;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 10%;
+  vertical-align: middle;
+  display: inline-block;
+  outline: rgb(66, 153, 225) solid 1px !important
+}
+
 .Title{
   color: white;
+  padding: 10px;
 }
 
 .chat-container {
@@ -48,13 +80,14 @@ body {
 }
 
 .received {
-  background-color: #e0e0e0;
+  background-color: #C2272D;
+  color: white;
   text-align: left;
   max-width: 400px;
 }
 
 .sent {
-  background-color: #007bff;
+  background-color: #3a8fe9;
   text-align: right;
   color: white;
   max-width: 400px;
@@ -102,7 +135,7 @@ body {
   border-radius: 100px;
   font-size: 1.2em;
   box-shadow: 0px 2px 8px rgb(0 0 0 / 30%);
-  background-color: #A28332;
+  background-color: #150E5F;
   color: white;
 }
 

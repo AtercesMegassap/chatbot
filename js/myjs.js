@@ -1,8 +1,8 @@
 // Variáveis para controlar o fluxo de perguntas e respostas
 const perguntas = [
-  "Olá! Qual é o seu nome?",
-  "Qual é a sua idade?",
-  "Qual é a sua cidade?"
+  { pergunta: "Olá! Qual é o seu nome?", aceitaNumeros: false },
+  { pergunta: "Qual é a sua idade?", aceitaNumeros: true },
+  { pergunta: "Qual é a sua cidade?", aceitaNumeros: false }
 ];
 let perguntaAtual = 0;
 const respostas = [];
@@ -12,6 +12,14 @@ function sendMessage() {
   const userMessage = userInput.value.trim();
 
   if (userMessage === "") return;
+
+  // Verifique se o input deve aceitar apenas números
+  if (perguntas[perguntaAtual].aceitaNumeros && !/^\d+$/.test(userMessage)) {
+      alert("Por favor, digite apenas números para esta pergunta.");
+      userInput.value = "";
+      userInput.focus();
+      return;
+  }
 
   const chatContainer = document.querySelector(".chat-container");
 
@@ -37,7 +45,7 @@ function sendMessage() {
   respostas.push(userMessage);
 
   userInput.value = "";
-  userInput.focus(); // Coloca o foco de volta na caixa de entrada
+  userInput.focus();
 
   // Verifique se todas as perguntas foram feitas
   if (perguntaAtual < perguntas.length - 1) {
@@ -56,7 +64,7 @@ function sendMessage() {
 
           const messageReceived = document.createElement("div");
           messageReceived.classList.add("message", "received");
-          messageReceived.textContent = perguntas[perguntaAtual];
+          messageReceived.textContent = perguntas[perguntaAtual].pergunta;
 
           receivedMessage.appendChild(avatarReceived);
           receivedMessage.appendChild(messageReceived);
@@ -78,7 +86,7 @@ function sendMessage() {
 
           const messageReceived = document.createElement("div");
           messageReceived.classList.add("message", "received");
-          messageReceived.textContent = "Obrigado por responder às perguntas! A conversa acabou.";
+          messageReceived.textContent = "Aguarde alguns segundos estamos te redirecionando para o whatasapp...";
 
           receivedMessage.appendChild(avatarReceived);
           receivedMessage.appendChild(messageReceived);
@@ -87,11 +95,12 @@ function sendMessage() {
 
           chatContainer.scrollTop = chatContainer.scrollHeight;
 
-          // Aqui você pode fazer algo com as respostas do usuário
+                    // Aqui você pode fazer algo com as respostas do usuário
           var textMessage = `Meu nome é ${respostas[0]}
-Tenho ${respostas[1]}
+Tenho ${respostas[1]} anos
 Sou de ${respostas[2]}`
-          redirectMessage(textMessage);
+
+          setTimeout(() => redirectMessage(textMessage), 5000);
       }, 1000); // Simule uma resposta final após 1 segundo (1000 milissegundos)
   }
 }
